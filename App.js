@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Platform, Image, Text, View} from 'react-native';
-import {createSwitchNavigator,createAppContainer} from 'react-navigation';
+import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 
 import Loading from './Loading';
 import SignUp from './SignUp';
