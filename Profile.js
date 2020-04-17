@@ -1,22 +1,32 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Button} from 'react-native';
+import auth from '@react-native-firebase/auth';
+export default class Profile extends React.Component {
+  state = {currentUser: null};
 
-export default class Home extends React.Component {
-  static navigationOptions = {};
+  componentDidMount() {
+    const {currentUser} = auth();
+    this.setState({currentUser});
+  }
+
+  handleLogout = () => {
+    auth().signOut();
+  };
 
   render() {
+    const {currentUser} = this.state;
     return (
       <View style={styles.container}>
-        <Text>{'Profile'}</Text>
+        <Text>Hi {currentUser && currentUser.email}!</Text>
+        <Button title="Logout" onPress={this.handleLogout} />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });

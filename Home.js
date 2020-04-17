@@ -2,7 +2,9 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
 export default class Home extends React.Component {
-  static navigationOptions = {};
+  static navigationOptions = {
+    tabBarIcon: undefined,
+  };
 
   render() {
     return (
